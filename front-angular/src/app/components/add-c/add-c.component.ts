@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CalendarStatService} from "../../services/calendar-stat/calendar-stat.service";
 
 @Component({
   selector: 'app-add-c',
@@ -7,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCComponent implements OnInit {
 
-  constructor() { }
+  constructor(private calendarStatService: CalendarStatService) { }
 
   ngOnInit() {
   }
 
   addC() {
+    this.calendarStatService.addC(new Date());
     console.log('add-c');
   }
 
