@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/internal/Observable';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {ConstantesServeur} from '../../constantes/constantes-serveur';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +11,10 @@ export class CalendarStatService {
   constructor(private http: HttpClient) { }
 
   getAllStats(): Observable<Array<any>> {
-    const headerDict = {
-      };
+    return this.http.get<Array<any>>(ConstantesServeur.URL + ConstantesServeur.CALENDAR_STAT);
+  }
 
-      const requestOptions = {
-        headers: new HttpHeaders(headerDict),
-      };
-
-      return this.http.get<Array<any>>('http://gybels.fr/calendar-stat.php');
+  addC(date: Date) {
+    return this.http.post(ConstantesServeur.URL + ConstantesServeur.ADD_C, {params: ''} );
   }
 }
