@@ -16,7 +16,7 @@ class Day {
 	
 	public function __toString() {
 		if (isset($this->day) && isset($this->nb_c)) {
-			return strval($this->day) + " : " + strval($this->nb_c);
+			return strval($this->day)." : ".strval($this->nb_c);
 		} else {
 			return "wrong format";
 		}

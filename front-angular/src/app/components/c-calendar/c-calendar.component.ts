@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CalendarStatService} from "../services/calendar-stat/calendar-stat.service";
-import {Day} from "../model/Day";
+import {CalendarStatService} from "../../services/calendar-stat/calendar-stat.service";
+import {Day} from "../../model/Day";
 
 @Component({
   selector: 'app-c-calendar',
