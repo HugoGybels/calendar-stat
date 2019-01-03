@@ -10,8 +10,8 @@ export class CalendarStatService {
 
   constructor(private http: HttpClient) { }
 
-  getAllStats(): Observable<Array<any>> {
-    return this.http.get<Array<any>>(ConstantesServeur.URL + ConstantesServeur.CALENDAR_STAT);
+  getAllDays(): Observable<Array<any>> {
+    return this.http.get<Array<any>>(ConstantesServeur.URL + ConstantesServeur.GET_DAYS);
   }
 
   addC(date: Date) {

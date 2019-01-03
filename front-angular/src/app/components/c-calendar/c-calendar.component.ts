@@ -13,7 +13,7 @@ export class CCalendarComponent implements OnInit {
 
   constructor(private calendarStatService: CalendarStatService) {
 
-    this.calendarStatService.getAllStats().subscribe( data => {
+    this.calendarStatService.getAllDays().subscribe( data => {
         data.forEach( day => {
           this.days.push(new Day(day.day, +day.nb_c));
         });

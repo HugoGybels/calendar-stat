@@ -1,5 +1,5 @@
 export enum ConstantesServeur {
   URL = 'http://gybels.fr/',
-  CALENDAR_STAT = 'calendar-stat.php',
+  GET_DAYS = 'get-days.php',
   ADD_C = ''
 }
