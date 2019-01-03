@@ -19,7 +19,7 @@ foreach ($days as $day) {
 }
 
 if ($found == false) {
-    array_push($days, date("d/m/Y").";0\n");
+    array_push($days, new Day(date("d/m/Y"), "1"));
 }
 
 writeCsv($fileName, $days);
