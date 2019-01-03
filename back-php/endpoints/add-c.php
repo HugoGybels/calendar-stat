@@ -22,7 +22,7 @@ if ($found == false) {
     array_push($days, date("d/m/Y").";0\n");
 }
 
-writeCsv($fileName, $day);
+writeCsv($fileName, $days);
 
 echo json_encode($days);
 
