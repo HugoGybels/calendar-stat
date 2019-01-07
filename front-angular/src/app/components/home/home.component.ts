@@ -11,21 +11,10 @@ export class HomeComponent implements OnInit {
 
   public days: Array<Day> = [];
 
-  constructor(private calendarStatService: CalendarStatService) {
-    this.updateDayList();
+  constructor() {
   }
 
   ngOnInit() {
-  }
-
-  updateDayList() {
-    this.calendarStatService.getAllDays().subscribe( days => {
-      this.days = [];
-      days.forEach( day => {
-          this.days.push(new Day(day.day, +day.nb_c));
-        });
-      }
-    )
   }
 
 }

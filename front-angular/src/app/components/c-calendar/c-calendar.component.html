@@ -1,3 +1,29 @@
-<div *ngIf="days">
-  <p *ngFor="let day of days">{{day.day | date:'shortDate'}} - {{day.nb_c}}</p>
-</div>
+<section id="c-calendar">
+
+  <div id="title">
+    <h1>Apperçu des C</h1>
+  </div>
+
+  <div id="graph" *ngIf="lineChartData && lineChartLabels">
+    <canvas baseChart
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"></canvas>
+  </div>
+
+
+
+  <!--<div *ngIf="days">-->
+    <!--<p *ngFor="let day of days">{{day.day | date:'shortDate'}} - {{day.nb_c}}</p>-->
+  <!--</div>-->
+
+  <button type="button"
+          class="btn btn-secondary bottom-right"
+          routerLink="/add-c">
+    Ajouter
+  </button>
+
+</section>

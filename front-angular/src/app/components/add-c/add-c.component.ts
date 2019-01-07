@@ -1,5 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CalendarStatService} from "../../services/calendar-stat/calendar-stat.service";
+import {Router} from "@angular/router";
+import {ConstantesActions} from "../../constantes/constantes-actions";
 
 @Component({
   selector: 'app-add-c',
@@ -8,19 +10,22 @@ import {CalendarStatService} from "../../services/calendar-stat/calendar-stat.se
 })
 export class AddCComponent implements OnInit {
 
-  @Output() eventUpdateList = new EventEmitter<boolean>(); // Evenement permetant de mettre à jour la liste
+  public state = ConstantesActions.CHOIX_ACTION;
 
-  constructor(private calendarStatService: CalendarStatService) { }
+
+  constructor(private calendarStatService: CalendarStatService,
+              private router: Router) { }
 
   ngOnInit() {
   }
 
   addC() {
-    if(confirm("Confirmez l'ajout")) {
-      this.calendarStatService.addC().subscribe( data => {
-        this.eventUpdateList.emit()
-      });
-    }
+
+    this.calendarStatService.addC().subscribe( data => {
+      this.state = ConstantesActions.ENVOYE;
+      this.router.navigate(['home']);
+    });
+
   }
 
 }

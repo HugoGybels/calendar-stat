@@ -9,12 +9,55 @@ import {Day} from "../../model/Day";
 })
 export class CCalendarComponent implements OnInit {
 
-  @Input() days: Array<Day>;
+  public days: Array<Day> = [];
+  public cValues: Array<number> = [];
+  public cLegends: Array<String> = [];
 
-  constructor() {
+  //Chart :
+  public lineChartData:Array<any>;
+  public lineChartLabels:Array<String>;
+  public lineChartOptions:any = {
+        responsive: true
+      };
+      public lineChartColors:Array<any> = [
+        { // grey
+          backgroundColor: 'rgba(231,76,60 ,0.2)',
+          borderColor: 'rgba(231,76,60 ,1)',
+          pointBackgroundColor: 'rgba(231,76,60 ,1)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+        }
+      ];
+      public lineChartLegend:boolean = true;
+      public lineChartType:string = 'line';
+
+  constructor(private calendarStatService: CalendarStatService) {
+    this.updateDayList();
   }
 
   ngOnInit() {
   }
 
+  updateDayList() {
+    this.calendarStatService.getAllDays().subscribe( days => {
+        this.days = [];
+        days.forEach( day => {
+          this.days.push(new Day(day.day, +day.nb_c));
+          this.cValues.push(+day.nb_c);
+          this.cLegends.push(day.day);
+          this.initCharVars();
+        });
+      }
+    )
+  }
+
+  initCharVars() {
+  this.lineChartData = [
+      // {data: [1, 2], label: 'C'}
+      {data: this.cValues, label: 'C'}
+    ];
+    // public lineChartLabels:Array<String> = ['01/01/2018', '01/02/2018']; //this.cLegends;
+    this.lineChartLabels = this.cLegends;
+  }
 }
