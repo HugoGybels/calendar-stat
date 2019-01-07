@@ -14,7 +14,7 @@ export class CalendarStatService {
     return this.http.get<Array<any>>(ConstantesServeur.URL + ConstantesServeur.GET_DAYS);
   }
 
-  addC(date: Date) {
+  addC() {
     return this.http.post(ConstantesServeur.URL + ConstantesServeur.ADD_C, {params: ''} );
   }
 }

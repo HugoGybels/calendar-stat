@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CalendarStatService} from "../../services/calendar-stat/calendar-stat.service";
 import {Day} from "../../model/Day";
 
@@ -9,17 +9,9 @@ import {Day} from "../../model/Day";
 })
 export class CCalendarComponent implements OnInit {
 
-  public days: Array<Day> = [];
+  @Input() days: Array<Day>;
 
-  constructor(private calendarStatService: CalendarStatService) {
-
-    this.calendarStatService.getAllDays().subscribe( data => {
-        data.forEach( day => {
-          this.days.push(new Day(day.day, +day.nb_c));
-        });
-        console.log(this.days);
-      }
-    )
+  constructor() {
   }
 
   ngOnInit() {

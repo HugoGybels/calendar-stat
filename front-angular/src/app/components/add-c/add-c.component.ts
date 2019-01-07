@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CalendarStatService} from "../../services/calendar-stat/calendar-stat.service";
 
 @Component({
@@ -8,14 +8,19 @@ import {CalendarStatService} from "../../services/calendar-stat/calendar-stat.se
 })
 export class AddCComponent implements OnInit {
 
+  @Output() eventUpdateList = new EventEmitter<boolean>(); // Evenement permetant de mettre à jour la liste
+
   constructor(private calendarStatService: CalendarStatService) { }
 
   ngOnInit() {
   }
 
   addC() {
-    this.calendarStatService.addC(new Date());
-    console.log('add-c');
+    if(confirm("Confirmez l'ajout")) {
+      this.calendarStatService.addC().subscribe( data => {
+        this.eventUpdateList.emit()
+      });
+    }
   }
 
 }
