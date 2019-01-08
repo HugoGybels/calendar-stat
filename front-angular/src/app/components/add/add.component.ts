@@ -20,12 +20,11 @@ export class AddComponent implements OnInit {
    }
 
    addC() {
-
-     this.calendarStatService.addC().subscribe( data => {
-       this.state = ConstantesActions.ENVOYE;
-       this.router.navigate(['home']);
-     });
-
+     if(confirm("Voulez vous vraiment ajouter une C ?\nAction non reversible.")) {
+       this.calendarStatService.addC().subscribe( data => {
+         this.router.navigate(['home']);
+       });
+     }
    }
 
  }
