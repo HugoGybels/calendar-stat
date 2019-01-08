@@ -17,20 +17,27 @@ export class CCalendarComponent implements OnInit {
   public lineChartData:Array<any>;
   public lineChartLabels:Array<String>;
   public lineChartOptions:any = {
-        responsive: true
-      };
-      public lineChartColors:Array<any> = [
-        { // grey
-          backgroundColor: 'rgba(231,76,60 ,0.2)',
-          borderColor: 'rgba(231,76,60 ,1)',
-          pointBackgroundColor: 'rgba(231,76,60 ,1)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    responsive: true,
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
         }
-      ];
-      public lineChartLegend:boolean = true;
-      public lineChartType:string = 'line';
+      }]
+    }}
+  ;
+  public lineChartColors:Array<any> = [
+    { // grey
+      backgroundColor: 'rgba(231,76,60 ,0.2)',
+      borderColor: 'rgba(231,76,60 ,1)',
+      pointBackgroundColor: 'rgba(231,76,60 ,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    }
+  ];
+  public lineChartLegend:boolean = true;
+  public lineChartType:string = 'line';
 
   constructor(private calendarStatService: CalendarStatService) {
     this.updateDayList();
@@ -53,7 +60,7 @@ export class CCalendarComponent implements OnInit {
   }
 
   initCharVars() {
-  this.lineChartData = [
+    this.lineChartData = [
       // {data: [1, 2], label: 'C'}
       {data: this.cValues, label: 'C'}
     ];
