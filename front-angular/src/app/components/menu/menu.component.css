@@ -1,0 +1,46 @@
+#section-menu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#section-menu div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 33.33%;
+}
+
+#section-menu div img {
+  width: 50%;
+}
+
+/**
+Mobile
+ */
+@media screen and (max-width: 640px) {
+  #section-menu {
+    flex-direction: row;
+  }
+  #section-menu div {
+    height: 100%;
+    width: 33.33%;
+  }
+  #section-menu div img {
+    height: 50%;
+  }
+}
+
+
+#home-button {
+  background-color: var(--cyan);
+}
+
+#graph-button {
+  background-color: var(--violet);
+}
+
+#add-button {
+  background-color: var(--corail);
+}

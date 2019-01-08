@@ -1,19 +1,22 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {CalendarStatService} from "../../services/calendar-stat/calendar-stat.service";
 import {Day} from "../../model/Day";
 
 @Component({
-  selector: 'app-c-calendar',
-  templateUrl: './c-calendar.component.html',
-  styleUrls: ['./c-calendar.component.css']
+  selector: 'app-graph',
+  templateUrl: './graph.component.html',
+  styleUrls: ['./graph.component.css']
 })
-export class CCalendarComponent implements OnInit {
+export class GraphComponent implements OnInit {
 
+  // Tableau contenant tous les jours
   public days: Array<Day> = [];
+
+  // Valeurs pour les c
   public cValues: Array<number> = [];
   public cLegends: Array<String> = [];
 
-  //Chart :
+  // variables pour le graph
   public lineChartData:Array<any>;
   public lineChartLabels:Array<String>;
   public lineChartOptions:any = {
@@ -23,9 +26,7 @@ export class CCalendarComponent implements OnInit {
         ticks: {
           beginAtZero: true,
         }
-      }]
-    }}
-  ;
+      }]}};
   public lineChartColors:Array<any> = [
     { // grey
       backgroundColor: 'rgba(231,76,60 ,0.2)',
@@ -53,18 +54,16 @@ export class CCalendarComponent implements OnInit {
           this.days.push(new Day(day.day, +day.nb_c));
           this.cValues.push(+day.nb_c);
           this.cLegends.push(day.day);
-          this.initCharVars();
+          this.initGraphVars();
         });
       }
     )
   }
 
-  initCharVars() {
+  initGraphVars() {
     this.lineChartData = [
-      // {data: [1, 2], label: 'C'}
       {data: this.cValues, label: 'C'}
     ];
-    // public lineChartLabels:Array<String> = ['01/01/2018', '01/02/2018']; //this.cLegends;
     this.lineChartLabels = this.cLegends;
   }
 }

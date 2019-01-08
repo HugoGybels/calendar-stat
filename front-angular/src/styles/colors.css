@@ -1,0 +1,9 @@
+/**
+Fichier contenant toutes les variables de couleurs de l'application
+ */
+:root {
+  --gris-clair: #D3D3D3;
+  --cyan: #008B8B;
+  --violet: #483D8B;
+  --corail: #F08080;
+}
