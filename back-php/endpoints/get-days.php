@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     /*****************************************/
     /*            Lecture du fichier         */
     /*****************************************/
-    $data = readCsv($fileName);
+    $data = readCsv($statsFileName);
 
     /*****************************************/
     /*        Retour sous forme de JSON      */

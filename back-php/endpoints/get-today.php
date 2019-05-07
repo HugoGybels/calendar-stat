@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     /*****************************************/
     /*            Lecture du fichier         */
     /*****************************************/
-    $days = readCsv($fileName);
+    $days = readCsv($statsFileName);
     $today = new Day(date("d/m/Y"), 0);
 
     foreach ($days as $day) {

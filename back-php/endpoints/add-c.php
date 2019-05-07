@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     /*****************************************/
     /*            Lecture du fichier         */
     /*****************************************/
-    $days = readCsv($fileName);
+    $days = readCsv($statsFileName);
     $found = false;
 
     foreach ($days as $day) {
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         array_push($days, new Day(date("d/m/Y"), "1"));
     }
 
-    writeCsv($fileName, $days);
+    writeCsv($statsFileName, $days);
 
     echo json_encode($days);
 

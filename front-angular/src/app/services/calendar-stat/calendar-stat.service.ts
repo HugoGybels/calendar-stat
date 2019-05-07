@@ -22,4 +22,8 @@ export class CalendarStatService {
   addC() {
     return this.http.post(ConstantesServeur.URL + ConstantesServeur.ADD_C, {params: ''} );
   }
+
+  reccordLast() {
+    return this.http.post(ConstantesServeur.URL +  ConstantesServeur.RECORD_LAST, {params: ''});
+  } 
 }
