@@ -21,7 +21,8 @@ export class AddComponent implements OnInit {
 
    addC() {
      if(confirm("Voulez vous vraiment ajouter une C ?\nAction non reversible.")) {
-       this.calendarStatService.addC().subscribe( data => {
+      this.calendarStatService.reccordLast().subscribe(); 
+      this.calendarStatService.addC().subscribe( data => {
          this.router.navigate(['home']);
        });
      }

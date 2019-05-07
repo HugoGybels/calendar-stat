@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
     this.calendarStatService.getToday().subscribe( today => {
       this.currentNumber = today.nb_c;
     });
-    this.calendarStatService.reccordLast().subscribe();
   }
 
   ngOnInit() {

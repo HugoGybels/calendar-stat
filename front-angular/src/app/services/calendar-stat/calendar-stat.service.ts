@@ -25,5 +25,9 @@ export class CalendarStatService {
 
   reccordLast() {
     return this.http.post(ConstantesServeur.URL +  ConstantesServeur.RECORD_LAST, {params: ''});
-  } 
+  }
+
+  getLast(): Observable<Date> {
+    return this.http.get<Date>(ConstantesServeur.URL +  ConstantesServeur.GET_LAST);
+  }
 }

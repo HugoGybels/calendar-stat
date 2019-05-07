@@ -3,5 +3,6 @@ export enum ConstantesServeur {
   GET_DAYS = 'get-days.php',
   GET_TODAY= 'get-today.php',
   ADD_C = 'add-c.php',
-  RECORD_LAST = 'reccord-last.php'
+  RECORD_LAST = 'reccord-last.php',
+  GET_LAST = 'get-last.php'
 }

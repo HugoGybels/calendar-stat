@@ -33,6 +33,9 @@ Mobile
   }
 }
 
+#last-button {
+  background-color: rgb(59, 183, 255);
+}
 
 #home-button {
   background-color: var(--cyan);

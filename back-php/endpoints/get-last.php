@@ -4,13 +4,20 @@ include("../config.php");
 include("../utils.php");
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    /*******************************************************/
-    /*            Lecture/Ecriture dans le fichier         */
-    /*******************************************************/
-    $myfile = fopen("../data/last.csv", "w") or die("Unable to open file!");
-	fwrite($myfile, new Day(date("d/m/Y"))."\n");
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    /*****************************************/
+    /*            Lecture du fichier         */
+    /*****************************************/
+    $myfile = fopen($lastFileName, "r") or die("Unable to open file!");
+    if (filesize($lastFileName)) {
+        $dataStr = fread($myfile,filesize($lastFileName));
+    }
 	fclose($myfile);
+
+    /*****************************************/
+    /*        Retour sous forme de JSON      */
+    /*****************************************/
+    echo json_encode($dataStr);
 }
+
 ?>

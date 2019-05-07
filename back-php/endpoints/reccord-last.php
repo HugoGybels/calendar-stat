@@ -10,9 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     /*            Lecture/Ecriture dans le fichier         */
     /*******************************************************/
     $myfile = fopen($lastFileName, "w") or die("Unable to open file!");
-	fwrite($myfile, date("d/m/Y")."\n");
+	fwrite($myfile, date("Y-m-d H:i:s"));
 	fclose($myfile);
-} else {
-    die("Method not allowed");
 }
 ?>

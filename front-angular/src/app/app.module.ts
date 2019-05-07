@@ -10,9 +10,16 @@ import {ChartsModule} from 'ng2-charts';
 import { GraphComponent } from './components/graph/graph.component';
 import { AddComponent } from './components/add/add.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { LastComponent } from './components/last/last.component';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+registerLocaleData(localeFr);
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'last', component: LastComponent },
   { path: 'graph', component: GraphComponent },
   { path: 'add', component: AddComponent },
   { path: '', redirectTo: 'home', pathMatch: 'prefix' }
@@ -24,7 +31,8 @@ const routes: Routes = [
     HomeComponent,
     GraphComponent,
     AddComponent,
-    MenuComponent
+    MenuComponent,
+    LastComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -36,6 +44,7 @@ const routes: Routes = [
     HttpClientModule
   ],
   providers: [
+    { provide: LOCALE_ID, useValue: "fr-FR" },
     CalendarStatService
   ],
   bootstrap: [AppComponent]
