@@ -4,6 +4,10 @@ Fichier contenant toutes les variables de couleurs de l'application
 :root {
   --gris-clair: #D3D3D3;
   --cyan: #008B8B;
-  --violet: #483D8B;
-  --corail: #F08080;
+  --violet: #9575cd;
+  --violet-light: #c7a4ff;
+  --violet-dark: #65499c;
+  --corail: #f06292;
+  --corail-light: #ff94c2;
+  --corail-dark: #ba2d65;
 }
