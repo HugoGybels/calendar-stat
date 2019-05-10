@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'last', component: LastComponent },
   { path: 'graph', component: GraphComponent },
   { path: 'add', component: AddComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'prefix' }
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
